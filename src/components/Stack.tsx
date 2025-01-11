@@ -1,7 +1,11 @@
 import { MagicCard } from "./MagicCard";
 import stackIcons from "../utils/importIcons";
 
-export function Stack() {
+interface StackProps {
+    hue: number;
+}
+
+export function Stack({ hue }: StackProps) {
     const stackItems = [
         // Backend
         { name: "Python", icon: stackIcons["python"] },
@@ -14,6 +18,9 @@ export function Stack() {
         { name: "Render", icon: stackIcons["render"] },
 
     ];
+
+    const dynamicGradientTo = `hsl(${hue}, 100%, 50%)`; // Match Hue slider
+
     return (
         <div className="bg-black text-white py-24"> {/* Increased padding for more space */}
             <h2 className="text-3xl font-bold text-center mb-16"> {/* Increased margin for more space between title and cards */}
@@ -30,7 +37,7 @@ export function Stack() {
                     <MagicCard
                         key={index}
                         className="cursor-pointer flex items-center justify-center p-14 shadow-2xl rounded-lg"
-                        gradientColor={"#181818"}
+                        gradientTo={dynamicGradientTo} // Pass dynamic gradient
                     >
                         <div className="flex flex-row items-center justify-center h-full space-x-4">
                             <img

@@ -1,4 +1,3 @@
-//import React from "react";
 import { useState } from "react";
 import NavBar from "./components/Navbar";
 import Stack from "./components/Stack";
@@ -52,10 +51,13 @@ function App() {
     return (
         <div className="min-h-screen bg-black text-white">
             {/* NavBar */}
-            <NavBar/>
+            <NavBar />
 
-            {/* Main Content */}
-            <div className="flex items-center justify-center min-h-[calc(100vh-64px)]">
+            {/* Hero Section */}
+            <div className="flex flex-col items-center justify-center min-h-[calc(100vh-64px)]">
+                <h1 className="text-5xl font-bold mb-12 text-center">
+                    Rainbow AI 🌈
+                </h1>
                 <div className="grid grid-cols-2 w-full max-w-6xl gap-8">
                     {/* Left Side: HSL Sliders */}
                     <div className="flex flex-col gap-8">
@@ -119,7 +121,7 @@ function App() {
                         )}
                         <button
                             onClick={handleSubmit}
-                            className="px-8 py-3 border-neutral-50 border-2 bg-transparent  text-lg rounded-lg hover:bg-neutral-50 hover:text-neutral-950 transition"
+                            className="px-8 py-3 border-neutral-50 border-2 bg-transparent text-lg rounded-lg hover:bg-neutral-50 hover:text-neutral-950 transition"
                             disabled={isLoading}
                         >
                             {isLoading ? "Predicting..." : "Predict"}
@@ -127,12 +129,13 @@ function App() {
                     </div>
                 </div>
             </div>
-                <div id="stack">
-                    {/* Stack Section */}
-                    <Stack/>
-                </div>
-            </div>
-            );
-            }
 
-            export default App;
+            {/* Stack Section */}
+            <div id="stack" className="pt-20">
+                <Stack hue={hue} />
+            </div>
+        </div>
+    );
+}
+
+export default App;
