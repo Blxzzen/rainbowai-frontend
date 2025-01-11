@@ -4,6 +4,12 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        clash: ['"Clash Display"', 'sans-serif'],
+      },
+      backgroundImage: {
+        'grain-texture': "url('src/assets/grain.jpg')",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

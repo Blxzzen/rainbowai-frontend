@@ -3,9 +3,11 @@ import stackIcons from "../utils/importIcons";
 
 interface StackProps {
     hue: number;
+    sat: number;
+    light: number;
 }
 
-export function Stack({ hue }: StackProps) {
+export function Stack({ hue, sat, light }: StackProps) {
     const stackItems = [
         // Backend
         { name: "Python", icon: stackIcons["python"] },
@@ -19,11 +21,16 @@ export function Stack({ hue }: StackProps) {
 
     ];
 
-    const dynamicGradientTo = `hsl(${hue}, 100%, 50%)`; // Match Hue slider
+    const dynamicGradientTo = `hsl(${hue}, ${sat}%, ${light}%)`; // Match Hue slider
 
     return (
         <div className="bg-black text-white py-24"> {/* Increased padding for more space */}
-            <h2 className="text-3xl font-bold text-center mb-16"> {/* Increased margin for more space between title and cards */}
+            <h2
+                className="text-3xl font-bold text-center mb-16 bg-gradient-to-b from-slate-50 bg-clip-text text-transparent"
+                style={{
+                    backgroundImage: `linear-gradient(to bottom, #F8FAFC, hsl(${hue}, ${sat}%, ${light}%))`,
+                }}
+            >
                 Tech Stack
             </h2>
             <div
@@ -39,7 +46,7 @@ export function Stack({ hue }: StackProps) {
                         className="cursor-pointer flex items-center justify-center p-14 shadow-2xl rounded-lg"
                         gradientTo={dynamicGradientTo} // Pass dynamic gradient
                     >
-                        <div className="flex flex-row items-center justify-center h-full space-x-4">
+                        <div className="flex flex-row items-center justify-between h-full space-x-4">
                             <img
                                 src={item.icon}
                                 alt={item.name}

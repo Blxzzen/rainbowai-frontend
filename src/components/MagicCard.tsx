@@ -18,7 +18,7 @@ export function MagicCard({
                               gradientColor = "#0e0e0e",
                               gradientOpacity = 0.8,
                               gradientFrom = "#b0b0b0",
-                              gradientTo = "#FE8BBB", // Default, can be overwritten
+                              gradientTo = "hsl(0, 100%, 50%)", // Default HSL fallback
                           }: MagicCardProps) {
     const cardRef = useRef<HTMLDivElement>(null);
     const mouseX = useMotionValue(-gradientSize);

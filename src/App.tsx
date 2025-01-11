@@ -49,20 +49,25 @@ function App() {
     };
 
     return (
-        <div className="min-h-screen bg-black text-white">
+        <div className="min-h-screen bg-blend-overlay bg-gradient-to-bl from-neutral-950 to-neutral-900 text-white bg-contain">
+
             {/* NavBar */}
             <NavBar />
 
             {/* Hero Section */}
-            <div className="flex flex-col items-center justify-center min-h-[calc(100vh-64px)]">
-                <h1 className="text-5xl font-bold mb-12 text-center">
-                    Rainbow AI 🌈
+            <div className="flex flex-col items-center justify-center min-h-[calc(95vh-128px)]">
+                <h1
+                    className="font-clash text-8xl font-bold text-center mb-40 bg-gradient-to-b from-slate-50 bg-clip-text text-transparent"
+                    style={{
+                        backgroundImage: `linear-gradient(to bottom, #F8FAFC, hsl(${hue}, ${saturation}%, ${lightness}%))`,
+                    }}>
+                    rainbowai
                 </h1>
                 <div className="grid grid-cols-2 w-full max-w-6xl gap-8">
                     {/* Left Side: HSL Sliders */}
                     <div className="flex flex-col gap-8">
                         <div className="space-y-4">
-                            <label className="block text-lg font-medium">Hue</label>
+                            <label className="font-clash block text-lg font-medium">Hue</label>
                             <input
                                 type="range"
                                 min="0"
@@ -76,7 +81,7 @@ function App() {
                             />
                         </div>
                         <div className="space-y-4">
-                            <label className="block text-lg font-medium">Saturation</label>
+                            <label className="font-clash block text-lg font-medium">Saturation</label>
                             <input
                                 type="range"
                                 min="0"
@@ -90,7 +95,7 @@ function App() {
                             />
                         </div>
                         <div className="space-y-4">
-                            <label className="block text-lg font-medium">Lightness</label>
+                            <label className="font-clash block text-lg font-medium">Lightness</label>
                             <input
                                 type="range"
                                 min="0"
@@ -115,13 +120,13 @@ function App() {
                             }}
                         ></div>
                         {result && (
-                            <p className="text-xl font-semibold text-center">
+                            <p className="font-clash text-xl font-semibold text-center">
                                 <strong>Predicted Color:</strong> {result}
                             </p>
                         )}
                         <button
                             onClick={handleSubmit}
-                            className="px-8 py-3 border-neutral-50 border-2 bg-transparent text-lg rounded-lg hover:bg-neutral-50 hover:text-neutral-950 transition"
+                            className="font-clash px-8 py-3 border-neutral-50 border-2 bg-transparent text-lg rounded-lg hover:bg-neutral-50 hover:text-neutral-950 transition"
                             disabled={isLoading}
                         >
                             {isLoading ? "Predicting..." : "Predict"}
@@ -132,7 +137,7 @@ function App() {
 
             {/* Stack Section */}
             <div id="stack" className="pt-20">
-                <Stack hue={hue} />
+                <Stack hue={hue} sat={saturation} light={lightness} />
             </div>
         </div>
     );

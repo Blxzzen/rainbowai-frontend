@@ -1,7 +1,9 @@
 function Navbar() {
     return (
-        <nav className="bg-black border-b border-white">
-            <div className="flex items-center justify-between max-w-7xl mx-auto px-4 py-4">
+        <nav className="bg-black bg-opacity-35 backdrop-blur-xl top-0 sticky border-b border-white">
+            <div className="font-clash flex items-center justify-between max-w-7xl mx-auto px-4 py-4">
+                {/* Placeholder for Spacing */}
+                <div></div>
 
                 {/* Navigation Links */}
                 <div className="flex space-x-6">
