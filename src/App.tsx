@@ -1,6 +1,7 @@
 //import React from "react";
 import { useState } from "react";
 import NavBar from "./components/Navbar";
+import Stack from "./components/Stack";
 
 function App() {
     const [hue, setHue] = useState(180);
@@ -16,7 +17,6 @@ function App() {
         setResult(null);
 
         try {
-            // Create a 32x32 solid colour image in base64 format
             const canvas = document.createElement("canvas");
             canvas.width = 32;
             canvas.height = 32;
@@ -25,9 +25,8 @@ function App() {
                 ctx.fillStyle = color;
                 ctx.fillRect(0, 0, 32, 32);
             }
-            const imageData = canvas.toDataURL("image/png").split(",")[1]; // Extract base64 data
+            const imageData = canvas.toDataURL("image/png").split(",")[1];
 
-            // Send the image data to the backend
             const response = await fetch("https://rainbowai-backend.onrender.com/predict", {
                 method: "POST",
                 headers: {
@@ -53,7 +52,7 @@ function App() {
     return (
         <div className="min-h-screen bg-black text-white">
             {/* NavBar */}
-            <NavBar />
+            <NavBar/>
 
             {/* Main Content */}
             <div className="flex items-center justify-center min-h-[calc(100vh-64px)]">
@@ -68,7 +67,10 @@ function App() {
                                 max="360"
                                 value={hue}
                                 onChange={(e) => setHue(Number(e.target.value))}
-                                className="w-full h-2 bg-gray-700 rounded-lg appearance-none"
+                                className="w-full h-2 appearance-none rounded-lg"
+                                style={{
+                                    background: "linear-gradient(to right, red, orange, yellow, green, cyan, blue, violet, red)",
+                                }}
                             />
                         </div>
                         <div className="space-y-4">
@@ -79,7 +81,10 @@ function App() {
                                 max="100"
                                 value={saturation}
                                 onChange={(e) => setSaturation(Number(e.target.value))}
-                                className="w-full h-2 bg-gray-700 rounded-lg appearance-none"
+                                className="w-full h-2 appearance-none rounded-lg"
+                                style={{
+                                    background: `linear-gradient(to right, gray, ${`hsl(${hue}, 100%, ${lightness}%)`})`,
+                                }}
                             />
                         </div>
                         <div className="space-y-4">
@@ -90,7 +95,10 @@ function App() {
                                 max="100"
                                 value={lightness}
                                 onChange={(e) => setLightness(Number(e.target.value))}
-                                className="w-full h-2 bg-gray-700 rounded-lg appearance-none"
+                                className="w-full h-2 appearance-none rounded-lg"
+                                style={{
+                                    background: `linear-gradient(to right, black, ${`hsl(${hue}, ${saturation}%, 50%)`}, white)`,
+                                }}
                             />
                         </div>
                     </div>
@@ -99,7 +107,10 @@ function App() {
                     <div className="flex flex-col items-center justify-center gap-8">
                         <div
                             className="w-64 h-64 rounded-lg shadow-lg"
-                            style={{ backgroundColor: color }}
+                            style={{
+                                backgroundColor: color,
+                                backgroundImage: `radial-gradient(circle, ${color} 50%, transparent 100%)`,
+                            }}
                         ></div>
                         {result && (
                             <p className="text-xl font-semibold text-center">
@@ -108,7 +119,7 @@ function App() {
                         )}
                         <button
                             onClick={handleSubmit}
-                            className="px-8 py-3 bg-purple-600 text-lg rounded-lg hover:bg-purple-700 transition"
+                            className="px-8 py-3 border-neutral-50 border-2 bg-transparent  text-lg rounded-lg hover:bg-neutral-50 hover:text-neutral-950 transition"
                             disabled={isLoading}
                         >
                             {isLoading ? "Predicting..." : "Predict"}
@@ -116,9 +127,12 @@ function App() {
                     </div>
                 </div>
             </div>
-        </div>
-    );
-}
+                <div id="stack">
+                    {/* Stack Section */}
+                    <Stack/>
+                </div>
+            </div>
+            );
+            }
 
-export default App;
-
+            export default App;
