@@ -1,6 +1,7 @@
 import { useState } from "react";
 import NavBar from "./components/Navbar";
 import Stack from "./components/Stack";
+import Guide from "./components/Guide";
 
 function App() {
     const [hue, setHue] = useState(180);
@@ -49,13 +50,13 @@ function App() {
     };
 
     return (
-        <div className="min-h-screen bg-blend-overlay bg-gradient-to-bl from-neutral-950 to-neutral-900 text-white bg-contain">
+        <div id="home" className="relative z-20 min-h-screen bg-blend-overlay bg-gradient-to-bl from-neutral-950 to-neutral-900 text-white bg-contain">
 
             {/* NavBar */}
             <NavBar />
 
             {/* Hero Section */}
-            <div className="flex flex-col items-center justify-center min-h-[calc(95vh-128px)]">
+            <div className="min-h-screen flex flex-col items-center justify-center min-h-[calc(95vh-128px)]">
                 <h1
                     className="font-clash text-8xl font-bold text-center mb-40 bg-gradient-to-b from-slate-50 bg-clip-text text-transparent"
                     style={{
@@ -119,24 +120,37 @@ function App() {
                                 backgroundImage: `radial-gradient(circle, ${color} 50%, transparent 100%)`,
                             }}
                         ></div>
-                        {result && (
-                            <p className="font-clash text-xl font-semibold text-center">
-                                <strong>Predicted Color:</strong> {result}
+                        <div className="flex flex-col items-center justify-center gap-4">
+                            {/* Reserved Space for Prediction */}
+                            <p
+                                className="font-clash text-xl font-semibold text-center h-6"
+                                style={{
+                                    visibility: result ? "visible" : "hidden",
+                                }}
+                            >
+                                <strong>Prediction:</strong>&nbsp;&nbsp;{result ? result[0].toUpperCase() + result.substring(1) : "Placeholder"}
                             </p>
-                        )}
-                        <button
-                            onClick={handleSubmit}
-                            className="font-clash px-8 py-3 border-neutral-50 border-2 bg-transparent text-lg rounded-lg hover:bg-neutral-50 hover:text-neutral-950 transition"
-                            disabled={isLoading}
-                        >
-                            {isLoading ? "Predicting..." : "Predict"}
-                        </button>
+
+                            {/* Predict Button */}
+                            <button
+                                onClick={handleSubmit}
+                                className="w-64 font-clash px-8 py-3 border-neutral-50 border-2 bg-transparent text-lg rounded-lg hover:bg-neutral-50 hover:text-neutral-950 transition"
+                                disabled={isLoading}
+                            >
+                                {isLoading ? "Predicting..." : "Predict"}
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
 
+            {/* Guide Section */}
+            <div id="guide">
+                <Guide hue={hue} sat={saturation} light={lightness} />
+            </div>
+
             {/* Stack Section */}
-            <div id="stack" className="pt-20">
+            <div id="stack">
                 <Stack hue={hue} sat={saturation} light={lightness} />
             </div>
         </div>
