@@ -15,7 +15,7 @@ export function MagicCard({
                               children,
                               className,
                               gradientSize = 300,
-                              gradientColor = "#0e0e0e",
+                              gradientColor = "#181818",
                               gradientOpacity = 0.8,
                               gradientFrom = "#b0b0b0",
                               gradientTo = "hsl(0, 100%, 50%)", // Default HSL fallback

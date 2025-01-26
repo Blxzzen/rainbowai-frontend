@@ -174,7 +174,7 @@ function Guide({ hue, sat, light }: GuideProps) {
                                     width: cloud.width,
                                     // Apply a translateY(...px) using the computed offset
                                     transform: `translateY(${cloudY}px)`,
-                                    opacity: 0.7,
+                                    opacity: 0.85,
                                 }}
                             />
                         );
