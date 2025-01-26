@@ -134,11 +134,22 @@ function App() {
                             {/* Predict Button */}
                             <button
                                 onClick={handleSubmit}
-                                className="w-64 font-clash px-8 py-3 border-neutral-50 border-2 bg-transparent text-lg rounded-lg hover:bg-neutral-50 hover:text-neutral-950 transition"
+                                className="relative w-64 font-clash px-8 py-3 border-neutral-50 border-2 bg-transparent text-lg rounded-lg overflow-hidden group transition-all duration-500 ease-in-out"
                                 disabled={isLoading}
                             >
-                                {isLoading ? "Predicting..." : "Predict"}
+                                {/* Predict Text */}
+                                <span
+                                    className="relative z-10 transition-all duration-300 group-hover:text-neutral-950">
+        {isLoading ? "Predicting..." : "Predict"}
+    </span>
+
+                                {/* Radial Expanding Background Effect */}
+                                <div
+                                    className="absolute left-1/2 top-0 w-0 h-0 bg-neutral-50 rounded-full transition-all duration-500 ease-in-out group-hover:w-[200%] group-hover:h-[400%] -translate-x-1/2"
+                                ></div>
                             </button>
+
+
                         </div>
                     </div>
                 </div>
@@ -146,12 +157,12 @@ function App() {
 
             {/* Guide Section */}
             <div id="guide">
-                <Guide hue={hue} sat={saturation} light={lightness} />
+                <Guide hue={hue} sat={saturation} light={lightness}/>
             </div>
 
             {/* Stack Section */}
             <div id="stack">
-                <Stack hue={hue} sat={saturation} light={lightness} />
+                <Stack hue={hue} sat={saturation} light={lightness}/>
             </div>
         </div>
     );
