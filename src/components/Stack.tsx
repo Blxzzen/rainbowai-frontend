@@ -31,7 +31,7 @@ export function Stack({ hue, sat, light }: StackProps) {
                     backgroundImage: `linear-gradient(to bottom, #F8FAFC, hsl(${hue}, ${sat}%, ${light}%))`,
                 }}
             >
-                Tech Stack
+                Tech&nbsp; Stack
             </h2>
             <div
                 className={

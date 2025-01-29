@@ -2,6 +2,7 @@ import { useState } from "react";
 import NavBar from "./components/Navbar";
 import Stack from "./components/Stack";
 import Guide from "./components/Guide";
+import About from "./components/About";
 
 function App() {
     const [hue, setHue] = useState(180);
@@ -163,6 +164,11 @@ function App() {
             {/* Stack Section */}
             <div id="stack">
                 <Stack hue={hue} sat={saturation} light={lightness}/>
+            </div>
+
+            {/* About Section */}
+            <div id="about">
+                <About hue={hue} sat={saturation} light={lightness}/>
             </div>
         </div>
     );

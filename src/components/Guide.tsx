@@ -228,20 +228,19 @@ function Guide({ hue, sat, light }: GuideProps) {
 
             {/* CENTER CARD */}
             <div
-                className="absolute bg-black/90 text-center rounded-lg p-6 shadow-lg max-w-2xl"
+                className="absolute text-center rounded-lg p-6 max-w-2xl border-gray-100 border-[0.5px]"
                 style={{
                     top: `calc(90% - ${Math.min(superProgress, 1) * 40}vh)`,
                     left: "50%",
                     transform: "translate(-50%, -50%)",
+                    background: "radial-gradient(circle, rgba(27,27,27,1) 0%, rgba(7,7,7,1) 100%)"
                 }}
             >
-                <p className="text-lg text-gray-300 font-clash font-extralight [word-spacing:2px]">
-                    An ML model makes a generalized prediction on what colour is currently selected by the user.
-                    The model interprets the colour as a base64 image, and was trained
-                    on 50,000 different images. 49,000 of these images were colours and 1,000 were shades. The model is
-                    given the options, Red, Orange, Yellow, Green, Blue, Purple, Black, White, Gray. Hue, saturation,
-                    and lightness are taken into account to ensure that the model isn't just basing it's predictions on
-                    colour ranges. It must also take into account how the saturation/lightness affect the overall colour.
+                <p className="text-lg text-gray-100 font-clash font-extralight [word-spacing:2px]">
+                    An ML model predicts the selected colour by interpreting it as a base64 image. It was
+                    trained on 50,000 images, including 49,000 colours and 1,000 shades, and classifies inputs
+                    as Red, Orange, Yellow, Green, Blue, Purple, Black, White, or Gray. To ensure accuracy, the
+                    model considers hue, saturation, and lightness, rather than relying solely on colour ranges.
                 </p>
             </div>
         </div>
