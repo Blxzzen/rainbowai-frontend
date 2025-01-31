@@ -76,7 +76,7 @@ function App() {
                                 max="360"
                                 value={hue}
                                 onChange={(e) => setHue(Number(e.target.value))}
-                                className="w-full h-2 appearance-none rounded-lg"
+                                className="w-full h-2 appearance-none rounded-lg accent-input"
                                 style={{
                                     background: "linear-gradient(to right, red, orange, yellow, green, cyan, blue, violet, red)",
                                 }}
@@ -90,7 +90,7 @@ function App() {
                                 max="100"
                                 value={saturation}
                                 onChange={(e) => setSaturation(Number(e.target.value))}
-                                className="w-full h-2 appearance-none rounded-lg"
+                                className="w-full h-2 appearance-none rounded-lg accent-input"
                                 style={{
                                     background: `linear-gradient(to right, gray, ${`hsl(${hue}, 100%, ${lightness}%)`})`,
                                 }}
@@ -104,7 +104,7 @@ function App() {
                                 max="100"
                                 value={lightness}
                                 onChange={(e) => setLightness(Number(e.target.value))}
-                                className="w-full h-2 appearance-none rounded-lg"
+                                className="w-full h-2 appearance-none rounded-lg accent-input"
                                 style={{
                                     background: `linear-gradient(to right, black, ${`hsl(${hue}, ${saturation}%, 50%)`}, white)`,
                                 }}

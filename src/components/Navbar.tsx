@@ -3,7 +3,7 @@ import { Logo } from "./Logo";
 function Navbar() {
     return (
         <nav className="bg-black bg-opacity-25 backdrop-blur-xl top-0 sticky border-b border-white z-50">
-            <div className="font-clash flex items-center justify-between max-w-7xl mx-auto py-4">
+            <div className="font-clash flex items-center justify-between max-w-7xl mx-auto py-2">
 
                 {/* Rainbow Logo */}
                 <Logo />
