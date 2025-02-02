@@ -3,6 +3,7 @@ import NavBar from "./components/Navbar";
 import Stack from "./components/Stack";
 import Guide from "./components/Guide";
 import About from "./components/About";
+import {VelocityScroll} from "./components/ScrollVelocity";
 
 function App() {
     const [hue, setHue] = useState(180);
@@ -169,6 +170,9 @@ function App() {
             {/* About Section */}
             <div id="about">
                 <About hue={hue} sat={saturation} light={lightness}/>
+            </div>
+            <div className="bg-black pt-1 font-clash [word-spacing:2px]">
+                <VelocityScroll>Thank You!&nbsp;&nbsp;</VelocityScroll>
             </div>
         </div>
     );

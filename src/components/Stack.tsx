@@ -24,9 +24,9 @@ export function Stack({ hue, sat, light }: StackProps) {
     const dynamicGradientTo = `hsl(${hue}, ${sat}%, ${light}%)`; // Match Hue slider
 
     return (
-        <div className="relative z-20 text-white py-24 font-clash"> {/* Increased padding for more space */}
+        <div className="relative z-20 text-white py-36 font-clash"> {/* Increased padding for more space */}
             <h2
-                className="text-5xl font-bold text-center mb-16 bg-gradient-to-b from-slate-50 bg-clip-text text-transparent"
+                className="text-5xl font-bold text-center mb-28 bg-gradient-to-b from-slate-50 bg-clip-text text-transparent"
                 style={{
                     backgroundImage: `linear-gradient(to bottom, #F8FAFC, hsl(${hue}, ${sat}%, ${light}%))`,
                 }}

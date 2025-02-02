@@ -106,21 +106,21 @@ function Guide({ hue, sat, light }: GuideProps) {
 
     const clouds = [
         {
-            src: "https://awv3node-homepage.surge.sh/build/assets/cloud.svg",
+            src: "cloud.svg",
             top: "20%",
             left: "10%",
             width: "15%",
             speedFactor: 4.5,
         },
         {
-            src: "https://awv3node-homepage.surge.sh/build/assets/cloud.svg",
+            src: "cloud.svg",
             top: "40%",
             left: "60%",
             width: "20%",
             speedFactor: 6,
         },
         {
-            src: "https://awv3node-homepage.surge.sh/build/assets/cloud.svg",
+            src: "cloud.svg",
             top: "70%",
             left: "25%",
             width: "25%",
@@ -174,7 +174,8 @@ function Guide({ hue, sat, light }: GuideProps) {
                                     width: cloud.width,
                                     // Apply a translateY(...px) using the computed offset
                                     transform: `translateY(${cloudY}px)`,
-                                    opacity: 0.85,
+                                    opacity: 1,
+
                                 }}
                             />
                         );
