@@ -69,6 +69,8 @@ function ParallaxText({
     const x = useTransform(baseX, (v) => `${wrap(-100 / repetitions, 0, v)}%`);
 
     const directionFactor = React.useRef<number>(1);
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
     useAnimationFrame((t, delta) => {
         let moveBy = directionFactor.current * baseVelocity * (delta / 1000);
 
