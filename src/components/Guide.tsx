@@ -218,7 +218,7 @@ function Guide({ hue, sat, light }: GuideProps) {
                 }}
             >
                 <h2
-                    className="font-clash text-5xl font-bold text-center mb-16 bg-gradient-to-b from-slate-50 bg-clip-text text-transparent"
+                    className="font-clash text-5xl font-bold text-center mb-16 bg-gradient-to-b from-slate-50 bg-clip-text text-transparent z-50"
                     style={{
                         backgroundImage: `linear-gradient(to bottom, #F8FAFC, hsl(${hue}, ${sat}%, ${light}%))`,
                     }}
